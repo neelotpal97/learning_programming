@@ -1,0 +1,77 @@
+.GOOGLE_LOGO,.SEARCH_BOX,.BOTTONS{
+	float: center;
+	text-align: center;
+
+}
+.GOOGLE_LOGO{
+	clear: right;
+}
+
+#NAVBAR{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: none;
+    float: right;
+}
+
+.NAVBAR_ICONS{
+	display: inline-block;
+
+}
+
+li a{
+	display: inline-block;
+    color: grey;
+    padding: 10px 10px 20px;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: arial, sans-serif;
+}
+
+li a:hover{
+    text-decoration: underline;
+}
+p{
+	background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+
+}
+
+.BUTTONS_PROP{
+	display: inline-block;
+	border-radius: 2px;
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    border-radius: 2px;
+    color: #757575;
+    cursor: default;
+    font-family: arial,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 11px 4px;
+    min-width: 54px;
+    padding: 0 16px;
+    text-align: center;
+    display: inline-block;
+}
+
+ul{
+	text-align: center;
+}
+
+input{
+	height: 30px;
+	width: 600px;
+
+}
+
+#BUTTONS_ALLIGN{
+	padding: 0 0 0 0;
+	float: center;
+}
+
+.FOOTER_ICONS{
+	display: inline-block;
+}
