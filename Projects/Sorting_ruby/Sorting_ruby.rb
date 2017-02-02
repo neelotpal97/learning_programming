@@ -1,4 +1,5 @@
 #Bubble sorting
+
 def bubble_sort(user_array)
     for num_passes in 0...(user_array.length - 1)
       puts "Pass #{num_passes + 1}" + "\n" + "-"*20
@@ -29,3 +30,24 @@ puts array
 puts "-"*20
 puts "Sorting :\n "
 puts bubble_sort(array)
+
+
+
+#Yield sorting
+def bubble_sort_by(user_array)
+  for num_passes in 0..(user_array.length - 1)
+    for i in 0...(user_array.length - 1)
+      if yield(user_array[i],user_array[i+1]) > 1
+        user_array[i],user_array[i+1] = user_array[i+1],user_array[i]
+      end
+    end
+  end
+  puts "Sorted Array :\n"
+  puts "-"*20
+  puts user_array
+  puts "-"*20
+end
+
+bubble_sort_by(["hi","hello","hey"]) do |left,right|
+  left.length - right.length
+end
