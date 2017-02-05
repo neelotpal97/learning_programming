@@ -95,12 +95,21 @@ class TicTacToe
 		print "Do you want to play more?(Y/N) : "
 		choice = gets.chomp
 		if choice == "Y"
+			puts "-" * 20
 			game_reset
 			return true
 		else
 			return false
 		end
 		
+	end
+
+	def draw_condition(user_hash)
+		user_hash.each do |x,y|
+			if user_hash[x] == " "
+				return false
+			end
+		end
 	end
 
 	def game_reset
@@ -129,7 +138,11 @@ class TicTacToe
 				print "Player 1 : "
 				player_1_move = gets.chomp.to_i
 				change_board(user_hash,player_1_move,1)
-				if did_anyone_win?(player_1_array(user_hash)) == true
+				if draw_condition(user_hash) == true
+					puts "DRAW!"
+					break
+				end
+				if did_anyone_win?(player_1_array(user_hash)) == true and draw_condition(user_hash) == false
 					puts "Player 1 win!"
 					flag = 1
 					break
@@ -137,7 +150,11 @@ class TicTacToe
 				print "Player 2 : "
 				player_2_move = gets.chomp.to_i
 				change_board(user_hash,player_2_move,2)
-				if did_anyone_win?(player_2_array(user_hash)) == true
+				if draw_condition(user_hash) 
+					puts "DRAW!"
+					break
+				end
+				if did_anyone_win?(player_2_array(user_hash)) == true and draw_condition(user_hash) == false
 					puts "Player 2 win!"
 					flag = 1
 					break
@@ -145,13 +162,8 @@ class TicTacToe
 			end
 			play_more?
 	end
-
-	
-
-
-
-	
 end
+
 
 user_hash = {
 	0 => " ",
