@@ -91,6 +91,8 @@ class TicTacToe
 	end
 	#--------------------------------------------------------------
 
+	#To check wether the player wants to play more
+	#--------------------------------------------------------------	
 	def play_more?
 		print "Do you want to play more?(Y/N) : "
 		choice = gets.chomp
@@ -103,7 +105,10 @@ class TicTacToe
 		end
 		
 	end
+	#--------------------------------------------------------------	
 
+	#Condition to check wether the condition for draw is satisfied
+	#--------------------------------------------------------------	
 	def draw_condition(user_hash)
 		user_hash.each do |x,y|
 			if user_hash[x] == " "
@@ -111,7 +116,10 @@ class TicTacToe
 			end
 		end
 	end
-
+	#--------------------------------------------------------------	
+	
+	#To reset the game
+	#--------------------------------------------------------------	
 	def game_reset
 		user_hash = {
 		0 => " ",
@@ -126,11 +134,12 @@ class TicTacToe
 		}
 		start_game(user_hash)
 	end
+	#--------------------------------------------------------------	
 
-
+	#The game begins here
+	#--------------------------------------------------------------	
 	def start_game(user_hash)
 		flag = 0
-		
 		puts "Welcome, lets play Tic Tac Toe:"
 		puts "This is put board..."
 		display_board(user_hash)
@@ -138,32 +147,35 @@ class TicTacToe
 				print "Player 1 : "
 				player_1_move = gets.chomp.to_i
 				change_board(user_hash,player_1_move,1)
-				if draw_condition(user_hash) == true
-					puts "DRAW!"
-					break
-				end
 				if did_anyone_win?(player_1_array(user_hash)) == true and draw_condition(user_hash) == false
 					puts "Player 1 win!"
 					flag = 1
 					break
 				end
-				print "Player 2 : "
-				player_2_move = gets.chomp.to_i
-				change_board(user_hash,player_2_move,2)
 				if draw_condition(user_hash) 
 					puts "DRAW!"
 					break
 				end
+				print "Player 2 : "
+				player_2_move = gets.chomp.to_i
+				change_board(user_hash,player_2_move,2)
 				if did_anyone_win?(player_2_array(user_hash)) == true and draw_condition(user_hash) == false
 					puts "Player 2 win!"
 					flag = 1
 					break
 				end
+				if draw_condition(user_hash) 
+					puts "DRAW!"
+					break
+				end
 			end
 			play_more?
 	end
+	#--------------------------------------------------------------	
 end
-
+#--------------------------------------------------------------	
+#--------------------------------------------------------------	
+#--------------------------------------------------------------	
 
 user_hash = {
 	0 => " ",
@@ -188,6 +200,6 @@ user_hash_layout = {
 	8 => "8"
 }
 
-start_game = TicTacToe.new
+start_game = TicTacToe.new    #Creating an instance
 start_game.display_board(user_hash_layout)
 start_game.start_game(user_hash)
