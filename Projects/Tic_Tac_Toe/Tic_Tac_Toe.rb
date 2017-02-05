@@ -71,6 +71,20 @@ class TicTacToe
 			return true
 		elsif (array.include?(3) and array.include?(4) and array.include?(5))
 			return true
+		elsif (array.include?(8) and array.include?(4) and array.include?(0))
+			return true
+		elsif (array.include?(0) and array.include?(3) and array.include?(6))
+			return true
+		elsif (array.include?(1) and array.include?(4) and array.include?(7))
+			return true
+		elsif (array.include?(2) and array.include?(5) and array.include?(8))
+			return true
+		elsif (array.include?(0) and array.include?(1) and array.include?(2))
+			return true
+		elsif (array.include?(3) and array.include?(4) and array.include?(5))
+			return true
+		elsif (array.include?(6) and array.include?(7) and array.include?(8))
+			return true
 		else
 			return false
 		end
@@ -79,27 +93,29 @@ class TicTacToe
 
 	def start_game(user_hash)
 		flag = 0
+		
 		puts "Welcome, lets play Tic Tac Toe:"
 		puts "This is put board..."
 		display_board(user_hash)
-		until (flag == 1)
-			print "Player 1 : "
-			player_1_move = gets.chomp.to_i
-			change_board(user_hash,player_1_move,1)
-			if did_anyone_win?(player_1_array(user_hash)) == true
-				puts "Player 1 win!"
-				flag = 1
-				break
+			until (flag == 1)
+				print "Player 1 : "
+				player_1_move = gets.chomp.to_i
+				change_board(user_hash,player_1_move,1)
+				if did_anyone_win?(player_1_array(user_hash)) == true
+					puts "Player 1 win!"
+					flag = 1
+					break
+				end
+				print "Player 2 : "
+				player_2_move = gets.chomp.to_i
+				change_board(user_hash,player_2_move,2)
+				if did_anyone_win?(player_2_array(user_hash)) == true
+					puts "Player 2 win!"
+					flag = 1
+					break
+				end
 			end
-			print "Player 2 : "
-			player_2_move = gets.chomp.to_i
-			change_board(user_hash,player_2_move,2)
-			if did_anyone_win?(player_2_array(user_hash)) == true
-				puts "Player 2 win!"
-				flag = 1
-				break
-			end
-		end
+
 
 		
 	end
