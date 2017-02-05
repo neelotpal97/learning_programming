@@ -91,6 +91,34 @@ class TicTacToe
 	end
 	#--------------------------------------------------------------
 
+	def play_more?
+		print "Do you want to play more?(Y/N) : "
+		choice = gets.chomp
+		if choice == "Y"
+			game_reset
+			return true
+		else
+			return false
+		end
+		
+	end
+
+	def game_reset
+		user_hash = {
+		0 => " ",
+		1 => " ",
+		2 => " ",
+		3 => " ",
+		4 => " ",
+		5 => " ",
+		6 => " ",
+		7 => " ",
+		8 => " "
+		}
+		start_game(user_hash)
+	end
+
+
 	def start_game(user_hash)
 		flag = 0
 		
@@ -115,9 +143,7 @@ class TicTacToe
 					break
 				end
 			end
-
-
-		
+			play_more?
 	end
 
 	
