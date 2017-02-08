@@ -53,7 +53,7 @@ class TicTacToe
 	def player_2_array(user_hash)
 		player_1 = []
 		user_hash.each do |position,value|
-			if value == "0"
+			if value == "O"
 				player_1 << position
 			end
 		end
