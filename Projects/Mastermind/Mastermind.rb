@@ -1,7 +1,7 @@
 #Mastermind
-class mastermind
 
-	def display_board(user_array,move)
+
+	def display_board(user_array)
 		puts "\t-------------------------"
 		puts "\t#{user_array[0]}\t#{user_array[1]}\t#{user_array[2]}\t#{user_array[3]}"
 	end
@@ -22,12 +22,35 @@ class mastermind
 		return false
 	end
 
-end
+	def create_code
+		code = []
+		4.times do 
+			i = rand(4)
+			if i == 0
+				code << "R"
+			elsif i == 1
+				code << "G"
+			elsif i == 2
+				code << "B"
+			elsif i == 3
+				code << "O"
+			elsif i == 5
+				code << "W"
+			end
+		end
+		return code
+	end		
+
+	def check_the_guess(code,user_array)
+	end
 
 
 
 puts "Enter the Pattern: "
-user_array = gets.chomp
+user_array = gets.chomp.upcase
 user_array = user_array.split("")
 display_guide
 display_board(user_array)
+10.times do
+	display_board(create_code)
+end
