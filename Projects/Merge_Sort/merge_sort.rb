@@ -19,5 +19,5 @@ def merge(array_1,array_2)
 end
 
 
-arr = [1,5,2,3,6,0,8,7]
+arr = [1,5,2,3,6,0,8,9,7]
 print merge_sort(arr)
