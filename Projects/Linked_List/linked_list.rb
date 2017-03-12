@@ -98,34 +98,19 @@ class LinkedList
 		return nil
 	end
 
-	def display
-		position = @head
-		until position.nil?
-			print "(" + position.value.to_s + ")" + " " + "-> "
-			position = position.next
+	def to_s
+		temp = @head
+		out = ""
+		until temp.nil?
+			out += "( #{temp.value} ) -> "
+			temp = temp.next
 		end
-		print "nil"
+		out += ("nil")
 	end
-
-
-
 
 end 
 
-list = LinkedList.new
-list.append(1)
-list.prepend(0)
-list.append(2)
-puts list.size_of_list
-puts list.head
-puts list.tail 
-list.pop
-puts list.size_of_list
-puts list.contains?(5)
-puts list.contains?(1)
-puts list.find(1)
-puts list.find(5)
-list.display
+
 
 
 
