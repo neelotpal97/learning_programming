@@ -42,6 +42,11 @@
 	end		
 
 	def check_the_guess(code,user_array)
+		code.each do |i|
+			if code[i] == user_array[i]
+				user_array[i] = "^"
+			end
+		end
 	end
 
 
@@ -54,3 +59,4 @@ display_board(user_array)
 10.times do
 	display_board(create_code)
 end
+
