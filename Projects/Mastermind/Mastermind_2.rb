@@ -1,6 +1,6 @@
  
 class Mastermind
-	@@turns = 12
+	@@turns = 3
 	def initialize
 		@code = create_code
 	end
@@ -22,21 +22,6 @@ class Mastermind
 		return user_array
 	end
 
-	# The Game starts here
-	def start_game
-		@user_array = user_input
-		while @@turns != 0 
-			@user_array = compare(@user_array,@code)
-			display_board(@user_array)
-			if win?(@user_array)
-				puts "You Won!"
-				break
-			end
-			@user_array = user_input	
-			@@turns -= 1
-		end
-	end
-
 	#Checks the condition for winning!
 	def win?(user_array)
 		user_array.each do |i|
@@ -56,9 +41,31 @@ class Mastermind
 	end
 
 	def display_board(user_array)
-		puts "\t-------------------------"
+		puts "\t----------------------------------"
 		puts "\t#{user_array[0]}\t#{user_array[1]}\t#{user_array[2]}\t#{user_array[3]}\t#{user_array[4]}"
+		puts "\t\tTurns Left : #{@@turns}"
 	end
+
+
+	# The Game starts here
+	def start_game
+		@user_array = user_input
+		while @@turns != 0 
+			@user_array = compare(@user_array,@code)
+			display_board(@user_array)
+			if win?(@user_array)
+				puts "You Won!"
+				break
+			end
+			@user_array = user_input	
+			@@turns -= 1
+			if @@turns == 0
+				puts "Out of turn! :("
+				break
+			end
+		end
+	end
+
 
 end
 
