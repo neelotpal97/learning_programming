@@ -17,13 +17,13 @@ def display_board(moves):
 	print "\n"
 	
 def player1_turn(moves):
-	move = raw_input("Player 1 : Your Move : ==>")
+	move = raw_input("Player 1 : Your Move : ==>  ")
 	moves[int(move)] = 'X'
 	display_board(moves)
 	return moves
 
 def player2_turn(moves):
-	move = raw_input("Player 2 : Your Move : ==>")
+	move = raw_input("Player 2 : Your Move : ==>  ")
 	moves[int(move)] = 'O'
 	display_board(moves)
 	return moves
